@@ -1,2 +1,2 @@
-# oobs
+# OOBS
 Object Oriented Bootstrapping
