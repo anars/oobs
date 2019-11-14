@@ -6,28 +6,15 @@
 class OOBS {
     constructor (options = {}) {}
 
-    /**
-     *
-     * Document it
-     *
-     * @param  {String} name Document it
-     * @param  {String} value Document it
-     *
-     * @returns {OOBS} Document it
-     */
-    css (name, value) {
-        return this;
-    }
-
     addClass (value) {
         return this;
     }
 
-    removeClass (value) {
+    attr (attributeName, value) {
         return this;
     }
 
-    toggleClass (value, state) {
+    css (name, value) {
         return this;
     }
 
@@ -39,23 +26,15 @@ class OOBS {
         return this;
     }
 
+    html (value) {
+        return this;
+    }
+
     innerHeight (value) {
         return this;
     }
 
     innerWidth (value) {
-        return this;
-    }
-
-    outerHeight (value, includeMargin) {
-        return this;
-    }
-
-    outerWidth (value, includeMargin) {
-        return this;
-    }
-
-    width (value) {
         return this;
     }
 
@@ -67,7 +46,31 @@ class OOBS {
         return this;
     }
 
+    outerHeight (value, includeMargin) {
+        return this;
+    }
+
+    outerWidth (value, includeMargin) {
+        return this;
+    }
+
     position () {
+        return this;
+    }
+
+    prop (propertyName, value) {
+        return this;
+    }
+
+    removeAttr (attributeName) {
+        return this;
+    }
+
+    removeClass (value) {
+        return this;
+    }
+
+    removeProp (propertyName) {
         return this;
     }
 
@@ -79,4 +82,11 @@ class OOBS {
         return this;
     }
 
+    toggleClass (value, state) {
+        return this;
+    }
+
+    width (value) {
+        return this;
+    }
 }
