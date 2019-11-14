@@ -31,7 +31,7 @@ class OOBS {
         return this;
     }
 
-    hasClass (className) {
+    hasClass (name) {
         return this;
     }
 
@@ -56,6 +56,26 @@ class OOBS {
     }
 
     width (value) {
+        return this;
+    }
+
+    offset (coordinates) {
+        return this;
+    }
+
+    offsetParent () {
+        return this;
+    }
+
+    position () {
+        return this;
+    }
+
+    scrollLeft (value) {
+        return this;
+    }
+
+    scrollTop (value) {
         return this;
     }
 
