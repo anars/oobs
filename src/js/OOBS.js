@@ -1,92 +1,126 @@
 "use strict";
 
 /* eslint-disable padded-blocks */
-
 // eslint-disable-next-line no-unused-vars
 class OOBS {
-    constructor (options = {}) {}
+    constructor(options = {}) {}
 
-    addClass (value) {
+    /**
+     *
+     * Document it
+     *
+     * @param {String} name Document it
+     *
+     * @return {Object} Document it
+     */
+    addClass(name) {
+        this.get$().addClass(name);
         return this;
     }
 
-    attr (attributeName, value) {
+    attr(attributeName, value) {
         return this;
     }
 
-    css (name, value) {
+    /**
+     *
+     * Document it
+     *
+     * @return {Object} Document it
+     */
+    get$() {
+        return $(`#${this.id}`);
+    }
+
+    /**
+     *
+     * Document it
+     *
+     * @param {Array} ...name Document it
+     *
+     * @return {Object} Document it
+     */
+    getComputedStyle(...name) {
+        return this.get$().css(name);
+    }
+
+    /**
+     *
+     * Document it
+     *
+     * @param {String} name Document it
+     *
+     * @return {Object} Document it
+     */
+    hasClass(name) {
+        return this.get$().hasClass(name);
+    }
+
+    height(value) {
         return this;
     }
 
-    hasClass (name) {
+    html(value) {
         return this;
     }
 
-    height (value) {
+    innerHeight(value) {
         return this;
     }
 
-    html (value) {
+    innerWidth(value) {
         return this;
     }
 
-    innerHeight (value) {
+    offset(coordinates) {
         return this;
     }
 
-    innerWidth (value) {
+    offsetParent() {
         return this;
     }
 
-    offset (coordinates) {
+    outerHeight(value, includeMargin) {
         return this;
     }
 
-    offsetParent () {
+    outerWidth(value, includeMargin) {
         return this;
     }
 
-    outerHeight (value, includeMargin) {
+    position() {
         return this;
     }
 
-    outerWidth (value, includeMargin) {
+    prop(propertyName, value) {
         return this;
     }
 
-    position () {
+    removeAttr(attributeName) {
         return this;
     }
 
-    prop (propertyName, value) {
+    removeClass(value) {
         return this;
     }
 
-    removeAttr (attributeName) {
+    removeProp(propertyName) {
         return this;
     }
 
-    removeClass (value) {
+    scrollLeft(value) {
         return this;
     }
 
-    removeProp (propertyName) {
+    scrollTop(value) {
         return this;
     }
 
-    scrollLeft (value) {
+    toggleClass(value, state) {
         return this;
     }
 
-    scrollTop (value) {
-        return this;
-    }
-
-    toggleClass (value, state) {
-        return this;
-    }
-
-    width (value) {
+    width(value) {
         return this;
     }
 }
