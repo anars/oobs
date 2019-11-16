@@ -223,7 +223,7 @@
     "one-var-declaration-per-line": 2,
     "operator-assignment": 2,
     "operator-linebreak": 2,
-    "padded-blocks": 2,
+    // "padded-blocks": 2,
     "padding-line-between-statements": 2,
     "prefer-arrow-callback": 2,
     "prefer-const": 2,
@@ -280,6 +280,10 @@
     "webextensions": true
   },
   "globals": {
-    "OOBS": false
+    "OOBS": false,
+    "OOBSComponent": false,
+    "OOBSContainer": false,
+    "OOBSFAIcon": false,
+    "OOBSFAStack": false
   }
 }
