@@ -1,26 +1,54 @@
 "use strict";
 
-/* eslint-disable padded-blocks */
 // eslint-disable-next-line no-unused-vars
 class OOBS {
-    constructor(options = {}) {}
+    constructor(options = {}) {
+        // eslint-disable-next-line no-underscore-dangle
+        const _element = document.getElementById(options.id);
+        this.getElement = () => _element;
+    }
 
     /**
      *
      * Document it
      *
-     * @param {String} pStrName Document it
+     * @param {String} name Document it
      *
      * @return {Object} Document it
      */
-    addClass(pStrName) {
-        this.get$().addClass(pStrName);
+    addClass(name) {
+        this.get$().addClass(name);
         return this;
+    }
+
+
+    /**
+     *
+     * Document it
+     *
+     * @return {Array} Document it
+     */
+    getClassList() {
+        return [...this.getElement().classList];
+    }
+
+
+    /**
+     *
+     * Document it
+     *
+     * @param {String} name Document it
+     *
+     * @return {Object} Document it
+     */
+    hasClass(name) {
+        return this.get$().hasClass(name);
     }
 
     attr(attributeName, value) {
         return this;
     }
+
 
     /**
      *
@@ -31,6 +59,7 @@ class OOBS {
     get$() {
         return $(`#${this.id}`);
     }
+
 
     /**
      *
@@ -44,6 +73,7 @@ class OOBS {
         return this.get$().css(pStrArrNames);
     }
 
+
     /**
      *
      * Document it
@@ -55,18 +85,6 @@ class OOBS {
      */
     setStyle(pStrNameOrObjProperties, pStrOrNumValueOrFun) {
         return this.get$().css(pStrNameOrObjProperties, pStrOrNumValueOrFun);
-    }
-
-    /**
-     *
-     * Document it
-     *
-     * @param {String} name Document it
-     *
-     * @return {Object} Document it
-     */
-    hasClass(name) {
-        return this.get$().hasClass(name);
     }
 
     height(value) {
