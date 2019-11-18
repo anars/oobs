@@ -9,12 +9,12 @@ class OOBS {
      *
      * Document it
      *
-     * @param {String} name Document it
+     * @param {String} pStrName Document it
      *
      * @return {Object} Document it
      */
-    addClass(name) {
-        this.get$().addClass(name);
+    addClass(pStrName) {
+        this.get$().addClass(pStrName);
         return this;
     }
 
@@ -36,12 +36,25 @@ class OOBS {
      *
      * Document it
      *
-     * @param {Array} ...name Document it
+     * @param {Array} pStrArrNames Document it
      *
      * @return {Object} Document it
      */
-    getComputedStyle(...name) {
-        return this.get$().css(name);
+    getStyle(...pStrArrNames) {
+        return this.get$().css(pStrArrNames);
+    }
+
+    /**
+     *
+     * Document it
+     *
+     * @param {String|Object} pStrNameOrObjProperties Document it
+     * @param {String|Number|Function} pStrOrNumValueOrFun Document it
+     *
+     * @return {Object} Document it
+     */
+    setStyle(pStrNameOrObjProperties, pStrOrNumValueOrFun) {
+        return this.get$().css(pStrNameOrObjProperties, pStrOrNumValueOrFun);
     }
 
     /**
