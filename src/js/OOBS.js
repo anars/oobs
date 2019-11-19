@@ -20,7 +20,8 @@ class OOBS {
 
     /**
      *
-     * Document it
+     * Adds the specified class values. If these classes already exist in the element's class attribute they are
+     * ignored.
      *
      * @param {String|Array|Function} value Document it
      *
@@ -28,7 +29,7 @@ class OOBS {
      */
     addClass(value) {
         if (typeof value === "function")
-            value = value(); // eslint-disable-line no-param-reassign
+            value = value(this); // eslint-disable-line no-param-reassign
         if (typeof value === "string")
             this.getElement().classList.add(value);
         else if (Array.isArray(value))
@@ -36,6 +37,48 @@ class OOBS {
         return this;
     }
 
+    /**
+     *
+     * Removes the specified class values.
+     *
+     * Note: Removing a class that does not exist does NOT throw an error.
+     *
+     * @param {String|Array|Function} value Document it
+     *
+     * @return {Object} Returns OOBS Object
+     */
+    removeClass(value) {
+        if (typeof value === "function")
+            value = value(this); // eslint-disable-line no-param-reassign
+        if (typeof value === "string")
+            this.getElement().classList.remove(value);
+        else if (Array.isArray(value))
+            name.forEach((name) => this.getElement().classList.remove(name));
+        return this;
+    }
+
+    /**
+     *
+     * When only one argument is present: Toggle the class value; i.e., if the class exists then remove it
+     * and return false, if not, then add it and return true.
+     *
+     * When a second argument is present: If the second argument evaluates to true, add the specified class
+     * value, and if it evaluates to false, remove it.
+     *
+     * @param {String|Array|Function} value Document it
+     * @param {Boolean} state Document it
+     *
+     * @return {Object} Returns OOBS Object
+     */
+    toggleClass(value, state) {
+        if (typeof value === "function")
+            value = value(this); // eslint-disable-line no-param-reassign
+        if (typeof value === "string")
+            this.getElement().classList.toggle(value, state);
+        else if (Array.isArray(value))
+            name.forEach((name) => this.getElement().classList.toggle(name, state));
+        return this;
+    }
 
     /**
      *
@@ -43,10 +86,9 @@ class OOBS {
      *
      * @return {Array} Document it
      */
-    getClassList() {
+    getClasses() {
         return [...this.getElement().classList];
     }
-
 
     /**
      *
@@ -57,116 +99,19 @@ class OOBS {
      * @return {Object} Document it
      */
     hasClass(name) {
-        return this.get$().hasClass(name);
+        return this.getElement().classList.contains(name);
     }
-
-    attr(attributeName, value) {
-        return this;
-    }
-
 
     /**
      *
      * Document it
      *
-     * @return {Object} Document it
-     */
-    get$() {
-        return $(`#${this.id}`);
-    }
-
-
-    /**
-     *
-     * Document it
-     *
-     * @param {Array} pStrArrNames Document it
+     * @param {String} oldName Document it
+     * @param {String} newName Document it
      *
      * @return {Object} Document it
      */
-    getStyle(...pStrArrNames) {
-        return this.get$().css(pStrArrNames);
-    }
-
-
-    /**
-     *
-     * Document it
-     *
-     * @param {String|Object} pStrNameOrObjProperties Document it
-     * @param {String|Number|Function} pStrOrNumValueOrFun Document it
-     *
-     * @return {Object} Document it
-     */
-    setStyle(pStrNameOrObjProperties, pStrOrNumValueOrFun) {
-        return this.get$().css(pStrNameOrObjProperties, pStrOrNumValueOrFun);
-    }
-
-    height(value) {
-        return this;
-    }
-
-    html(value) {
-        return this;
-    }
-
-    innerHeight(value) {
-        return this;
-    }
-
-    innerWidth(value) {
-        return this;
-    }
-
-    offset(coordinates) {
-        return this;
-    }
-
-    offsetParent() {
-        return this;
-    }
-
-    outerHeight(value, includeMargin) {
-        return this;
-    }
-
-    outerWidth(value, includeMargin) {
-        return this;
-    }
-
-    position() {
-        return this;
-    }
-
-    prop(propertyName, value) {
-        return this;
-    }
-
-    removeAttr(attributeName) {
-        return this;
-    }
-
-    removeClass(value) {
-        return this;
-    }
-
-    removeProp(propertyName) {
-        return this;
-    }
-
-    scrollLeft(value) {
-        return this;
-    }
-
-    scrollTop(value) {
-        return this;
-    }
-
-    toggleClass(value, state) {
-        return this;
-    }
-
-    width(value) {
-        return this;
+    replaceClass(oldName, newName) {
+        return this.getElement().classList.replace(oldName, newName);
     }
 }
