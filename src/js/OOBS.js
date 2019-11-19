@@ -3,6 +3,16 @@
 // eslint-disable-next-line no-unused-vars
 class OOBS {
     constructor(options = {}) {
+        // eslint-disable-next-line no-param-reassign
+        options = {
+            "append": false,
+            "container": "body",
+            // eslint-disable-next-line no-mixed-operators, no-magic-numbers, no-bitwise
+            "id": new Date().getTime() + (Math.random() * 9999999 | 1),
+            // eslint-disable-next-line no-magic-numbers
+            "type": this.constructor.name.toLowerCase().substr(4),
+            ...options
+        };
         // eslint-disable-next-line no-underscore-dangle
         const _element = document.getElementById(options.id);
         this.getElement = () => _element;
@@ -12,12 +22,17 @@ class OOBS {
      *
      * Document it
      *
-     * @param {String} name Document it
+     * @param {String|Array|Function} value Document it
      *
-     * @return {Object} Document it
+     * @return {Object} Returns OOBS Object
      */
-    addClass(name) {
-        this.get$().addClass(name);
+    addClass(value) {
+        if (typeof value === "function")
+            value = value(); // eslint-disable-line no-param-reassign
+        if (typeof value === "string")
+            this.getElement().classList.add(value);
+        else if (Array.isArray(value))
+            name.forEach((name) => this.getElement().classList.add(name));
         return this;
     }
 

@@ -28,7 +28,7 @@
     "consistent-return": 2,
     "consistent-this": 2,
     "constructor-super": 2,
-    "curly": 2,
+    // "curly": 2,
     "default-case": 2,
     "dot-location": 2,
     "dot-notation": 2,
@@ -62,7 +62,9 @@
     "lines-between-class-members": 2,
     "max-classes-per-file": 2,
     "max-depth": 2,
-    "max-len": 2,
+    "max-len": ["error", {
+      "code": 120
+    }],
     "max-lines": 0,
     "max-lines-per-function": 2,
     "max-nested-callbacks": 2,
@@ -217,7 +219,7 @@
     "no-warning-comments": 2,
     "no-whitespace-before-property": 2,
     "no-with": 2,
-    "nonblock-statement-body-position": 2,
+    // "nonblock-statement-body-position": 2,
     "object-curly-newline": 2,
     "object-curly-spacing": 2,
     "object-property-newline": 2,
