@@ -14,8 +14,29 @@ class OOBS {
             ...options
         };
         // eslint-disable-next-line no-underscore-dangle
-        const _element = document.getElementById(options.id);
+        let _element = document.getElementById(options.id);
+
+        /**
+         *
+         * Document it
+         *
+         * @param {String} name Document it
+         *
+         * @return {Object} Document it
+         */
         this.getElement = () => _element;
+
+        /**
+         *
+         * Document it
+         *
+         * @return {Object} Document it
+         */
+        this.dispose = () => {
+            _element.parentNode.removeChild(_element);
+            _element = null;
+            this.options = null;
+        };
     }
 
     /**
