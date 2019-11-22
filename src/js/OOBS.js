@@ -119,6 +119,26 @@ class OOBS {
      * @return {Object} Document it
      */
     replaceClass(oldName, newName) {
-        return this.getElement().classList.replace(oldName, newName);
+        this.getElement().classList.replace(oldName, newName);
+        return this;
     }
+
+    setVisible(state) {
+        if (typeof state === "undefined") {
+            if (this.hasClass("visible"))
+                this.replaceClass("visible", "invisible");
+            else if (this.hasClass("invisible"))
+                this.replaceClass("invisible", "visible");
+            else
+                this.addClass("visible");
+        } else if (state) {
+            this.removeClass("invisible");
+            this.addClass("visible");
+        } else {
+            this.removeClass("visible");
+            this.addClass("invisible");
+        }
+        return this;
+    }
+
 }
