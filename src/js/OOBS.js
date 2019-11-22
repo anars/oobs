@@ -33,7 +33,8 @@ class OOBS {
          * @return {Object} Document it
          */
         this.dispose = () => {
-            _element.parentNode.removeChild(_element);
+            if (_element)
+                _element.parentNode.removeChild(_element);
             _element = null;
             this.options = null;
         };
@@ -44,17 +45,12 @@ class OOBS {
      * Adds the specified class values. If these classes already exist in the element's class attribute they are
      * ignored.
      *
-     * @param {String|Array|Function} value Document it
+     * @param {String|Array} value Document it
      *
      * @return {Object} Returns OOBS Object
      */
-    addClass(value) {
-        if (typeof value === "function")
-            value = value(this); // eslint-disable-line no-param-reassign
-        if (typeof value === "string")
-            this.getElement().classList.add(value);
-        else if (Array.isArray(value))
-            name.forEach((name) => this.getElement().classList.add(name));
+    addClass(value = []) {
+        [...value].forEach((name) => this.getElement().classList.add(name));
         return this;
     }
 
@@ -64,17 +60,12 @@ class OOBS {
      *
      * Note: Removing a class that does not exist does NOT throw an error.
      *
-     * @param {String|Array|Function} value Document it
+     * @param {String|Array} value Document it
      *
      * @return {Object} Returns OOBS Object
      */
-    removeClass(value) {
-        if (typeof value === "function")
-            value = value(this); // eslint-disable-line no-param-reassign
-        if (typeof value === "string")
-            this.getElement().classList.remove(value);
-        else if (Array.isArray(value))
-            name.forEach((name) => this.getElement().classList.remove(name));
+    removeClass(value = []) {
+        [...value].forEach((name) => this.getElement().classList.remove(name));
         return this;
     }
 
@@ -86,18 +77,13 @@ class OOBS {
      * When a second argument is present: If the second argument evaluates to true, add the specified class
      * value, and if it evaluates to false, remove it.
      *
-     * @param {String|Array|Function} value Document it
+     * @param {String|Array} value Document it
      * @param {Boolean} state Document it
      *
      * @return {Object} Returns OOBS Object
      */
-    toggleClass(value, state) {
-        if (typeof value === "function")
-            value = value(this); // eslint-disable-line no-param-reassign
-        if (typeof value === "string")
-            this.getElement().classList.toggle(value, state);
-        else if (Array.isArray(value))
-            name.forEach((name) => this.getElement().classList.toggle(name, state));
+    toggleClass(value = [], state) {
+        [...value].forEach((name) => this.getElement().classList.toggle(name, state));
         return this;
     }
 
