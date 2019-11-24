@@ -123,6 +123,14 @@ class OOBS {
         return this;
     }
 
+    /**
+     *
+     *  Document it
+     *
+     * @param  {Boolean} state Document it
+     *
+     * @return {Object} Document it
+     */
     setVisible(state) {
         if (typeof state === "undefined") {
             if (this.hasClass("visible"))
