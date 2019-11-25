@@ -1,18 +1,43 @@
 "use strict";
 
+/* eslint-disable max-lines-per-function */
+/* eslint-disable max-statements */
+
 // eslint-disable-next-line no-unused-vars
 class OOBS {
-    constructor(options = {}) {
-        // eslint-disable-next-line no-param-reassign
-        options = {
-            "append": false,
-            "container": "body",
-            // eslint-disable-next-line no-mixed-operators, no-magic-numbers, no-bitwise
-            "id": new Date().getTime() + (Math.random() * 9999999 | 1),
-            // eslint-disable-next-line no-magic-numbers
-            "type": this.constructor.name.toLowerCase().substr(4),
-            ...options
-        };
+    constructor(options = {}, documentFragment) {
+        try {
+            // eslint-disable-next-line no-param-reassign
+            options = {
+                "append": false,
+                "container": "body",
+                // eslint-disable-next-line no-mixed-operators, no-magic-numbers, no-bitwise
+                "id": new Date().getTime() + (Math.random() * 999999999 | 1),
+                // eslint-disable-next-line no-magic-numbers
+                "type": this.constructor.name.toLowerCase().substr(4),
+                ...options
+            };
+            const containerElement = document.querySelector(options.container);
+            if (containerElement === null) {
+                // eslint-disable-next-line no-console
+                console.error(`Continer ${options.container} not found.`);
+                return;
+            }
+
+            const componentDiv = document.createElement("div");
+            componentDiv.id = `${options.type}-${options.id}`;
+            componentDiv.appendChild(documentFragment);
+            if (options.append) {
+
+            }
+            else{
+
+            }
+
+        } catch (exception) {
+            // eslint-disable-next-line no-console
+            console.error(exception);
+        }
         // eslint-disable-next-line no-underscore-dangle
         let _element = document.getElementById(options.id);
 
