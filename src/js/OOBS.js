@@ -9,7 +9,7 @@ class OOBS {
         try {
             // eslint-disable-next-line no-param-reassign
             options = {
-                "append": false,
+                "attach": "append",
                 "container": "body",
                 // eslint-disable-next-line no-mixed-operators, no-magic-numbers, no-bitwise
                 "id": new Date().getTime() + (Math.random() * 999999999 | 1),
@@ -23,17 +23,18 @@ class OOBS {
                 console.error(`Continer ${options.container} not found.`);
                 return;
             }
-
+            // eslint-disable-next-line one-var
             const componentDiv = document.createElement("div");
             componentDiv.id = `${options.type}-${options.id}`;
             componentDiv.appendChild(documentFragment);
-            if (options.append) {
+            options.attach = (options.attach || "").toLowerCase();
+            if (options.attach === "append") {
 
+            } else if (options.attach === "prepend") {
+
+            } else if (options.attach === "replace") {
+                
             }
-            else{
-
-            }
-
         } catch (exception) {
             // eslint-disable-next-line no-console
             console.error(exception);
