@@ -29,7 +29,7 @@ class OOBS {
             componentDiv.appendChild(documentFragment);
             options.attach = (options.attach || "").toLowerCase();
             if (options.attach === "append") {
-
+                containerElement.appendChild(componentDiv);
             } else if (options.attach === "prepend") {
 
             } else if (options.attach === "replace") {
