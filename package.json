@@ -1,0 +1,30 @@
+{
+  "author": "Kay Anar",
+  "dependencies": {
+    "jsdoc": "^3.6.3"
+  },
+  "description": "Object Oriented Bootstrapping",
+  "homepage": "http://anars.com/oobs/",
+  "main": "gulpfile.js",
+  "name": "noobs",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:anars/oobs.git"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "clean": "gulp clean",
+    "watch": "gulp watch"
+  },
+  "version": "0.0.1",
+  "devDependencies": {
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^6.0.0",
+    "gulp-if": "^3.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify-es": "^2.0.0"
+  }
+}

@@ -28,12 +28,15 @@ class OOBS {
             componentDiv.id = `${options.type}-${options.id}`;
             componentDiv.appendChild(documentFragment);
             options.attach = (options.attach || "").toLowerCase();
-            if (options.attach === "append") {
+            // eslint-disable-next-line no-extra-parens
+            if (options.attach === "append" || (options.attach === "prepend" && containerElement.firstChild === null)) {
                 containerElement.appendChild(componentDiv);
             } else if (options.attach === "prepend") {
-
+                containerElement.insertBefore(componentDiv, containerElement.firstChild);
             } else if (options.attach === "replace") {
-                
+                while (containerElement.lastChild)
+                    containerElement.removeChild(containerElement.lastChild);
+                containerElement.appendChild(componentDiv);
             }
         } catch (exception) {
             // eslint-disable-next-line no-console

@@ -1,0 +1,6 @@
+[submodule "modules/jquery"]
+	path = modules/jquery
+	url = git@github.com:jquery/jquery.git
+[submodule "modules/bootstrap"]
+	path = modules/bootstrap
+	url = git@github.com:twbs/bootstrap.git
